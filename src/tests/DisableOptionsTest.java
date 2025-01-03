@@ -19,14 +19,14 @@ public class DisableOptionsTest extends CoreTestCase {
     {
 
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-            WebElement settingsIcon = wait.until(ExpectedConditions.elementToBeClickable(By.id("org.wikipedia:id/menu_settings"))); // Adjust this ID based on your app version
+            WebElement settingsIcon = wait.until(ExpectedConditions.elementToBeClickable(By.id("org.wikipedia:id/menu_settings"))); 
 
             // Click on the settings icon
             settingsIcon.click();
 
             // Wait for settings options to load
             List<WebElement> settingOptions = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(
-                    By.className("android.widget.Switch"))); // Assuming the settings options are switches, adjust if necessary
+                    By.className("android.widget.Switch"))); 
 
             // Disable all options (uncheck or turn off the switches)
             for (WebElement settingOption : settingOptions) {
@@ -36,10 +36,10 @@ public class DisableOptionsTest extends CoreTestCase {
             }
 
             // Navigate back to the home page
-            WebElement backButton = driver.findElement(By.className("android.widget.ImageButton")); // Assuming the back button is a generic ImageButton
+            WebElement backButton = driver.findElement(By.className("android.widget.ImageButton")); 
             backButton.click();
 
-        WebElement homePageElement = driver.findElement(By.id("org.wikipedia:id/main_page_element")); // Adjust this element ID to check home page
+        WebElement homePageElement = driver.findElement(By.id("org.wikipedia:id/main_page_element")); 
         assertTrue(homePageElement.isDisplayed());
 
 

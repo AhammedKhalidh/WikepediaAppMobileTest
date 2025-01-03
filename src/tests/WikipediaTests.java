@@ -35,29 +35,25 @@ public class WikipediaTests extends CoreTestCase {
         // Click on "My Lists" icon
         MobileElement myListsIcon = (MobileElement) driver.findElement(By.xpath("//android.widget.TextView[@content-desc='My lists']"));
         myListsIcon.click();
-        //Thread.sleep(3000);
-         wait = new WebDriverWait(driver, Duration.ofSeconds(3)); // Explicit wait for 3 seconds
-
-        // Locate the "My Lists" icon element (adjust the selector as needed)
-         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//android.widget.ImageView[@content-desc='My Lists']")));
-         assertTrue(myListsIcon.isDisplayed());
+        Thread.sleep(3000);
+        assertTrue(myListsIcon.isDisplayed() && myListsIcon.isEnabled() && myListsIcon.isSelected());
 
         // Click on "History" icon
         MobileElement historyIcon = (MobileElement) driver.findElement(By.xpath("//android.widget.TextView[@content-desc='History']"));
         historyIcon.click();
         Thread.sleep(3000);  // Wait for 3 seconds on this page
-        assertTrue(historyIcon.isDisplayed());
+        assertTrue(historyIcon.isDisplayed() && historyIcon.isEnabled() && historyIcon.isSelected());
         // Click on "Nearby" icon
         MobileElement nearbyIcon = (MobileElement) driver.findElement(By.xpath("//android.widget.TextView[@content-desc='Nearby']"));
         nearbyIcon.click();
         Thread.sleep(3000);  // Wait for 3 seconds on this page
-        assertTrue(nearbyIcon.isDisplayed());
+        assertTrue(nearbyIcon.isDisplayed() && nearbyIcon.isEnabled() && nearbyIcon.isSelected);
 
         // Go back to home page by clicking the "Browse" icon
         MobileElement browseIcon = (MobileElement) driver.findElement(By.xpath("//android.widget.TextView[@content-desc='Browse']"));
         browseIcon.click();
         Thread.sleep(3000);  // Wait for 3 seconds on the homepage
-        assertTrue(browseIcon.isDisplayed());
+        assertTrue(browseIcon.isDisplayed() && browseIcon.isEnabled() && browseIcon.isSelected());
 
         // Scroll up to the first topic of the app
         scrollToTop();
